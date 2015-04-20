@@ -1,0 +1,42 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files (x86)\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\Program Files (x86)\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   '.\\lib\\test.js' ]
+2 info using npm@2.7.4
+3 info using node@v0.12.2
+4 verbose node symlink C:\Program Files (x86)\nodejs\\node.exe
+5 warn package.json modejs-learning@0.0.1 No repository field.
+6 warn package.json modejs-learning@0.0.1 No README data
+7 silly cache add args [ '.\\lib\\test.js', null ]
+8 verbose cache add spec .\lib\test.js
+9 silly cache add parsed spec { raw: '.\\lib\\test.js',
+9 silly cache add   scope: null,
+9 silly cache add   name: null,
+9 silly cache add   rawSpec: '.\\lib\\test.js',
+9 silly cache add   spec: 'E:\\DEV\\nodejs\\nodejs-learning\\lib\\test.js',
+9 silly cache add   type: 'local' }
+10 silly addLocalTarball shasum (computed) cfb7b11495e05696860f3ba7a0e6bd4f599d1f77
+11 verbose addTmpTarball E:\DEV\nodejs\nodejs-learning\lib\test.js not in flight; adding
+12 verbose addTmpTarball validating metadata from E:\DEV\nodejs\nodejs-learning\lib\test.js
+13 verbose tar unpack E:\DEV\nodejs\nodejs-learning\lib\test.js
+14 verbose tar unpacking to C:\Users\Tomek\AppData\Local\Temp\npm-6928-b66058b6\unpack-e8a0d394077c
+15 silly gentlyRm C:\Users\Tomek\AppData\Local\Temp\npm-6928-b66058b6\unpack-e8a0d394077c is being purged
+16 verbose gentlyRm don't care about contents; nuking C:\Users\Tomek\AppData\Local\Temp\npm-6928-b66058b6\unpack-e8a0d394077c
+17 silly gunzTarPerm modes [ '777', '666' ]
+18 error not a package E:\DEV\nodejs\nodejs-learning\lib\test.js
+19 error addLocal Could not install E:\DEV\nodejs\nodejs-learning\lib\test.js
+20 verbose stack Error: ENOENT, open 'C:\Users\Tomek\AppData\Local\Temp\npm-6928-b66058b6\unpack-e8a0d394077c\package.json'
+20 verbose stack     at Error (native)
+21 verbose cwd E:\DEV\nodejs\nodejs-learning
+22 error Windows_NT 6.1.7601
+23 error argv "C:\\Program Files (x86)\\nodejs\\\\node.exe" "C:\\Program Files (x86)\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" ".\\lib\\test.js"
+24 error node v0.12.2
+25 error npm  v2.7.4
+26 error path C:\Users\Tomek\AppData\Local\Temp\npm-6928-b66058b6\unpack-e8a0d394077c\package.json
+27 error code ENOENT
+28 error errno -4058
+29 error enoent ENOENT, open 'C:\Users\Tomek\AppData\Local\Temp\npm-6928-b66058b6\unpack-e8a0d394077c\package.json'
+29 error enoent This is most likely not a problem with npm itself
+29 error enoent and is related to npm not being able to find a file.
+30 verbose exit [ -4058, true ]

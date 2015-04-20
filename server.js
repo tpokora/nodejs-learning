@@ -30,7 +30,7 @@ function getIndex(res) {
 }
 
 function getListPage(res) {
-	fs.readFile('./titles.json', function(err, data) {
+	fs.readFile('./data/list.json', function(err, data) {
 		if (err) {
 			hadError(err, res);
 		} else {

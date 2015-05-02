@@ -16,7 +16,7 @@ function checkIfComplete() {
 function countWordsInText(text) {
     var words = text.toString()
         .toLowerCase()
-        .split(/\W+/)
+        .split(" ") // /\W+/
         .sort();
     for(var index in words) {
         var word = words[index];

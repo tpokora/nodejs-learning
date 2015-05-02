@@ -21,31 +21,22 @@ var server = http.createServer(function(req, res) {
 
 function getIndex(res) {
 	fs.readFile('./public/index.html', function(err, data) {
-		if (err) {
-			hadError(err, res);
-		} else {
-			printHTML(data.toString(), res);
-		}
-	})
+		if (err) hadError(err, res);
+		printHTML(data.toString(), res);
+	});
 }
 
 function getListPage(res) {
 	fs.readFile('./data/list.json', function(err, data) {
-		if (err) {
-			hadError(err, res);
-		} else {
-			getTemplate(JSON.parse(data.toString()), res);
-		}
+		if (err) hadError(err, res);
+		getTemplate(JSON.parse(data.toString()), res);
 	});
 }
 
 function getTemplate(list, res) {
 	fs.readFile('./public/list.html', function(err, data) {
-		if (err) {
-			hadError(err, res);
-		} else {
-			printList(list, data.toString(), res);
-		}
+		if (err) hadError(err, res);
+		printList(list, data.toString(), res);
 	});
 }
 

@@ -4,6 +4,7 @@ var tasks = [];
 var wordCounts = {};
 var filesDir = './text';
 
+// method to check if all reading tasks are complete
 function checkIfComplete() {
     completedTasks++;
     if (completedTasks == tasks.length) {

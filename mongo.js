@@ -9,7 +9,7 @@ var url = 'mongodb://Tomek:speyside#7@ds039088.mongolab.com:39088/testdb';
 
 MongoClient.connect(url, function(err, db) {
     if (err) {
-        console.log('Cannot connect to database!');
+        console.log('Cannot connect to database!', err);
     } else {
         console.log('Successful connection to database.');
 

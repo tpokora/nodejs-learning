@@ -5,7 +5,7 @@
 var mongodb = require('mongodb');
 var MongoClient = mongodb.MongoClient;
 
-var url = 'mongodb://Tomek:speyside#7@ds039088.mongolab.com:39088/testdb';
+var url = 'mongodb://Tomek:pass@ds039088.mongolab.com:39088/testdb';
 
 MongoClient.connect(url, function(err, db) {
     if (err) {

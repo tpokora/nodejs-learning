@@ -5,7 +5,7 @@
 var mongodb = require('mongodb');
 var MongoClient = mongodb.MongoClient;
 
-var url = 'mongodb://Tomek:speyside#7@ds039088.mongolab.com:39088/testdb';
+var url = 'mongodb://tomek:tomek1@ds039088.mongolab.com:39088/testdb';
 
 MongoClient.connect(url, function(err, db) {
     if (err) {
@@ -13,8 +13,36 @@ MongoClient.connect(url, function(err, db) {
     } else {
         console.log('Successful connection to database.');
 
-        // TODO: some action on database
+        db.createCollection('testCollection', {strict:true}, function(err, collection) {
+            if (err) {
+                console.log('Error: testCollection already exists');
+            } else {
+                console.log('Created testCollection.');
+            }
+        });
 
-        db.close();
+        var collection = db.collection('testCollection');
+        var doc1 = { 'hello':'doc1' };
+        var listOfDocs = [{'hello':'doc3'}, {'hello':'doc3'}];
+
+        collection.insertOne(doc1, function(err, result) {
+            if (err) {
+                console.log('Element already exists.');
+            } else {
+                console.log('Element added.');
+            }
+
+        });
+        collection.insertOne(listOfDocs, function(err, result) {
+            if (err) {
+                console.log('Element already exists.');
+            } else {
+                console.log('Element added.');
+            }
+        });
+
+        //=======================================================
+
+        
     }
-})
+});

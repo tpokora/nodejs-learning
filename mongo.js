@@ -5,6 +5,12 @@
 var mongodb = require('mongodb');
 var MongoClient = mongodb.MongoClient;
 
+var insertError = 'Element exists.';
+var insertOk = 'Element added.';
+
+var findError = 'Item not found!';
+var findOk = 'Item found';
+
 var url = 'mongodb://tomek:tomek1@ds039088.mongolab.com:39088/testdb';
 
 MongoClient.connect(url, function(err, db) {
@@ -23,26 +29,66 @@ MongoClient.connect(url, function(err, db) {
 
         var collection = db.collection('testCollection');
         var doc1 = { 'hello':'doc1' };
-        var listOfDocs = [{'hello':'doc3'}, {'hello':'doc3'}];
+        var doc2 = { 'hello':'doc2' };
+        var listOfDocs = [{'hello':'doc3'}, {'hello':'doc4'}];
 
-        collection.insertOne(doc1, function(err, result) {
+        collection.insertOne(doc1,{safe:true}, function(err, result) {
             if (err) {
-                console.log('Element already exists.');
+                console.log(insertError);
             } else {
-                console.log('Element added.');
+                console.log(insertOk);
             }
 
         });
-        collection.insertOne(listOfDocs, function(err, result) {
+
+        collection.insertMany(listOfDocs, {safe:true}, function(err, result) {
             if (err) {
-                console.log('Element already exists.');
+                console.log(insertError);
             } else {
-                console.log('Element added.');
+                console.log(insertOk);
             }
         });
 
         //=======================================================
 
-        
+        collection.removeOne(doc1);
+
+        var toFind = { 'hello': 'world'};
+        collection.insertOne(toFind, {safe: true}, function(err, result) {
+            if (err) {
+                console.log(insertError);
+            } else {
+                collection.find().toArray(function(err, items) {
+                    if (err) {
+                        console.log('Error', err);
+                    } else {
+                        console.log('Found: ' + items.length + ' items.');
+                    }
+                });
+
+                collection.findOne(toFind, function(err, item) {
+                    if (err) {
+                        console.log(findError);
+                    } else {
+                        console.log(findOk, toFind);
+                    }
+                });
+            }
+        });
+
+        // remove all
+        removeAll(collection);
     }
 });
+
+function removeAll(collection) {
+    collection.find().toArray(function(err, items) {
+       if (err) {
+           console.log(err);
+       } else {
+           collection.remove({}, function(err, numberRemoved) {
+               console.log('Removed ' + numberRemoved + ' documents.');
+           });
+       }
+    });
+}

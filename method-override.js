@@ -1,4 +1,4 @@
-var connect = require('connect')
+var connect = require('connect');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 

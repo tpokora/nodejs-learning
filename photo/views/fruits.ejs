@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Fruits</h1>
+    <div id="fruits">
+      <hr />
+      <% fruits.forEach(function(fruit) { %>
+        <div class="fruit">
+          <h2><%= fruit.name %></h2>
+          <h3><%= fruit.desc %></h3>
+        </div>
+        <hr />
+      <% }) %>
+    </div>
+    <p><a href="/">HOME</a></p>
+  </body>
+</html>

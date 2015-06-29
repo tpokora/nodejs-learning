@@ -9,6 +9,7 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var test = require('./routes/myRoute');
 var fruitsStatic = require('./routes/fruitsstatic');
+var fruits = require('./routes/fruits');
 
 var app = express();
 
@@ -29,6 +30,9 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/myroute', test);
 app.use('/fruitsstatic', fruitsStatic.list);
+app.get('/fruits', fruits.form);
+//app.post('/fruits', fruits.submit(app.get('fruits')));
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

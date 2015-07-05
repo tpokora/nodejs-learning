@@ -30,7 +30,8 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/myroute', test);
 app.use('/fruitsstatic', fruitsStatic.list);
-app.get('/fruits', fruits.form);
+app.get('/fruits', fruits.form);//, fruits.list);
+app.get('/fruitslist', fruits.list);
 //app.post('/fruits', fruits.submit(app.get('/fruits')));
 app.post('/fruits', fruits.submit);
 

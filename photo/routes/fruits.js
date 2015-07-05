@@ -22,3 +22,15 @@ exports.submit = function(req, res) {
   var html = "Fruit: " + fruit.name + "\nDesc: " + fruit.desc;
   res.send(html);
 };
+
+exports.list = function(req, res, next) {
+  Fruit.find({}, function(err, fruits) {
+    if (err) {
+      return next(err);
+    }
+    res.render('fruits', {
+      title: 'Fruits',
+      fruits: fruits
+    })
+  })
+};
